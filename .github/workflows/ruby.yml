@@ -13,7 +13,7 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bin/rails rdb:test:prepare
+        bin/rails db:test:prepare
         bundle exec rake
     container:
       image: ruby:2.6.5
