@@ -1,0 +1,21 @@
+require: 
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'lib/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+  
+Rails:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
