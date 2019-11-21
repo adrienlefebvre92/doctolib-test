@@ -11,11 +11,22 @@ AllCops:
 Rails:
   Enabled: true
 
+Metrics/LineLength:
+  Exclude:
+    - 'config/**/*'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'config/application.rb'
+    - 'config/application.rb'
+    - 'app/channels/application_cable/*'
+
+Style/Documentation:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
