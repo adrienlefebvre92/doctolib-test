@@ -1,24 +1,32 @@
-# README
+# Doctolib Technical Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here is my project for Doctolib technical test.
+I wrote a class method `Event.availaibilities("2018-05-12")` that returns 
+the list of avalaible slots in the next seven days.
 
-Things you may want to cover:
+I have made some assumptions :
+- slots last 30 minutes;
+- appointments can be booked from the beginning of a slot only, ie, if slots are `9h-9h30-10h-10h30`, appointments can start at `9h, 9h30 and 10h`.
 
-* Ruby version
+I have used `Guard` to run the tests automatically while changing the files and `Rubocop` to ensure code clarity.
 
-* System dependencies
+## Setup
 
-* Configuration
+```
+# install dependencies
+bundle install
 
-* Database creation
+# database setup for SQLite
+rails db:migrate
+rails db:test:prepare
+```
 
-* Database initialization
+## Run test
+```
+rails test
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Run server
+```
+rails server
+```
