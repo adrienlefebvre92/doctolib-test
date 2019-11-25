@@ -11,9 +11,12 @@ gem "sqlite3"
 
 group :development, :test do
   gem "byebug"
+  gem "pry-byebug"
 end
 
 group :development do
+  gem "guard"
+  gem "guard-minitest"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rubocop"
   gem "rubocop-rails"
