@@ -16,7 +16,7 @@ I have used `Guard` to run the tests automatically while changing the files and 
 # install dependencies
 bundle install
 
-# database setup
+# database setup for SQLite
 rails db:migrate
 rails db:test:prepare
 ```

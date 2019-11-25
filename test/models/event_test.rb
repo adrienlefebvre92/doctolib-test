@@ -17,7 +17,7 @@ class EventTest < ActiveSupport::TestCase
     assert_equal 7, availabilities.length
   end
 
-  test "multiple openings and appointments" do
+  test "multiple openings and appointments slots" do
     Event.create kind: "opening", starts_at: DateTime.parse("2014-08-04 09:30"), ends_at: DateTime.parse("2014-08-04 12:30"), weekly_recurring: true
     Event.create kind: "opening", starts_at: DateTime.parse("2014-08-04 13:30"), ends_at: DateTime.parse("2014-08-04 16:30")
     Event.create kind: "appointment", starts_at: DateTime.parse("2014-08-04 10:30"), ends_at: DateTime.parse("2014-08-04 11:30")
@@ -39,7 +39,7 @@ class EventTest < ActiveSupport::TestCase
     assert_equal ["9:30", "10:00", "10:30", "11:00", "11:30", "12:00"], availabilities[1][:slots]
   end
 
-  test "appointment last longer than the opening frame" do
+  test "appointment last longer than the opening time frame" do
     Event.create kind: "opening", starts_at: DateTime.parse("2014-08-04 09:30"), ends_at: DateTime.parse("2014-08-04 12:30"), weekly_recurring: true
     Event.create kind: "appointment", starts_at: DateTime.parse("2014-08-11 09:30"), ends_at: DateTime.parse("2014-08-11 14:00")
 
@@ -52,7 +52,6 @@ class EventTest < ActiveSupport::TestCase
     availabilities = Event.availabilities DateTime.parse("2014-08-10")
     assert_equal "2014/08/11", availabilities[1][:date]
     assert_equal [], availabilities[1][:slots]
-    assert_equal 7, availabilities.length
   end
 
   test "no availabilities slot" do
