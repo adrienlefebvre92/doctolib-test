@@ -36,6 +36,7 @@ class Event < ApplicationRecord
     private
 
     def event_with_offset(event, date_max)
+      # computes how many weeks
       weeks_offset = ((date_max.to_datetime - event.starts_at.to_datetime).to_i / 7)
                      .weeks
       event.starts_at = event.starts_at + weeks_offset
@@ -53,6 +54,7 @@ class Event < ApplicationRecord
         .map { |day| { date: format_date(Time.zone.at(day)), slots: [] } }
     end
 
+    # returns the list of opening and appointments starting hours
     def format_events(events_in_day)
       events = { openings: [], appointments: [] }
 
